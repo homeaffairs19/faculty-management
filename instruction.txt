@@ -1,0 +1,7 @@
+use this command first
+
+npm install express mongoose body-parser cors
+
+the give correct connection string
+
+most probably wont be needed

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-app="facultyApp" ng-controller="FacultyController">
+    <div class="container">
+        <h1>Faculty Management System</h1>
+        
+        <!-- Add Faculty Form -->
+        <form ng-submit="submitForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="faculty.name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" ng-model="faculty.age" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" ng-model="faculty.subject" required>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" ng-model="faculty.department" required>
+
+            <button type="submit">Add Faculty</button>
+        </form>
+
+        <!-- Search Input -->
+        <input type="text" ng-model="searchTerm" placeholder="Search for faculty..." class="search-box">
+
+        <h2>Faculty List</h2>
+        <ul>
+            <!-- ng-repeat with filter applied -->
+            <li ng-repeat="faculty in faculties | filter:searchTerm">
+                <strong>{{faculty.name}}</strong><br>
+                Age: {{faculty.age}}<br>
+                Subject: {{faculty.subject}}<br>
+                Department: {{faculty.department}}
+            </li>
+        </ul>
+    </div>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- Your Custom AngularJS Script -->
+    <script src="app.js"></script>
+</body>
+</html>
